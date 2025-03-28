@@ -3,6 +3,8 @@
 This project is a **Spring Boot** application using **Axon Framework**, **RabbitMQ**, and **PostgreSQL**, following *
 *DDD** (Domain-Driven Design) and **CQRS** (Command Query Responsibility Segregation) principles.
 
+And postgres as event store
+
 ## 📥 Run the Project
 
 ```sh
@@ -51,7 +53,12 @@ cd products-query && mvn spring-boot:run > ../products-query.log 2>&1 &
 
 http://localhost:8761/ 
 
-# see for request
+![eureka.png](docs/eureka.png)
+
+# See for example of  request
+Or
+Import in Postman
+[microservices-starter.postman_collection.json](docs/microservices-starter.postman_collection.json)
 # Request by Gateway
 
 ### throuth gateway
