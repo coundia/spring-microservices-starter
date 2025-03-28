@@ -1,7 +1,8 @@
-# Spring Axon RabbitMQ Starter
+# Spring Axon RabbitMQ Webflux Starter
 
 This project is a maven module project with
-**Spring Boot** application that leverages **Axon Framework**, **RabbitMQ**, and **PostgreSQL**. It is built following **Domain-Driven Design (DDD)** and **Command Query Responsibility Segregation (CQRS)** principles, with PostgreSQL serving as the event store.
+**Spring Boot** application that leverages **Axon Framework**,
+**RabbitMQ**, and **PostgreSQL**. It is built following **Domain-Driven Design (DDD)** and **Command Query Responsibility Segregation (CQRS)** principles, with PostgreSQL serving as the event store.
 
 ---
 
