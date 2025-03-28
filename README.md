@@ -1,45 +1,76 @@
-# spring-axon-rabbitmq-starter
+# Spring Axon RabbitMQ Starter
 
-This project is a **Spring Boot** application using **Axon Framework**, **RabbitMQ**, and **PostgreSQL**, following *
-*DDD** (Domain-Driven Design) and **CQRS** (Command Query Responsibility Segregation) principles.
+This project is a maven module project with
+**Spring Boot** application that leverages **Axon Framework**, **RabbitMQ**, and **PostgreSQL**. It is built following **Domain-Driven Design (DDD)** and **Command Query Responsibility Segregation (CQRS)** principles, with PostgreSQL serving as the event store.
 
-And postgres as event store
+---
 
-## 📥 Run the Project
+## Table of Contents
 
-```sh
-git clone https://github.com/coundia/spring-microservices-starter.git
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [Installation and Execution](#installation-and-execution)
+	- [1. Clone the Repository](#1-clone-the-repository)
+	- [2. Start PostgreSQL and RabbitMQ](#2-start-postgresql-and-rabbitmq)
+	- [3. Start the Spring Boot Applications](#3-start-the-spring-boot-applications)
+- [Eureka Server](#eureka-server)
+- [API Requests via Gateway](#api-requests-via-gateway)
+- [Project Structure](#project-structure)
+- [Stopping the Servers](#stopping-the-servers)
+- [Notes](#notes)
+- [License](#license)
 
+---
 
-```
+## Overview
 
-## 📌 Prerequisites
+The **Spring Axon RabbitMQ Starter** project demonstrates a microservices architecture by combining:
 
-Before running the application, make sure you have installed:
+- **Axon Framework** for CQRS and Event Sourcing
+- **RabbitMQ** for event-driven messaging
+- **PostgreSQL** as both the primary database and the event store
+- **Eureka** for service discovery
+- **Spring Cloud Config Server** for centralized configuration
+- **Spring Cloud Gateway** for API routing
 
-https://taskfile.dev/installation/
+---
+
+## Prerequisites
+
+Before running the application, ensure you have installed:
 
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 - [Maven](https://maven.apache.org/)
+- [Taskfile](https://taskfile.dev/installation/)
 
-## 🚀 Installation and Execution
+---
 
-### 1️⃣ Start PostgreSQL and RabbitMQ
+## Installation and Execution
+
+### 1. Clone the Repository
+
+```sh
+git clone https://github.com/coundia/spring-microservices-starter.git
+```
+
+### 2. Start PostgreSQL and RabbitMQ
 
 Run the following command to start the Docker containers:
 
 ```sh
 docker compose -f docker/main.yml up -d
 ```
- 
 
-### 3️⃣ Start the Spring Boot Application
+### 3. Start the Spring Boot Applications
+
+You can start all applications using the provided Taskfile:
 
 ```sh
 task start
 ```
-or
+
+Alternatively, start each service manually:
 
 ```sh
 cd cloud-config-server && mvn spring-boot:run > ../cloud-config-server.log 2>&1 &
@@ -48,35 +79,54 @@ cd gateway-server && mvn spring-boot:run > ../gateway-server.log 2>&1 &
 cd products-command && mvn spring-boot:run > ../products-command.log 2>&1 &
 cd products-query && mvn spring-boot:run > ../products-query.log 2>&1 &
 ```
- 
-## 📡 Eureka server
 
-http://localhost:8761/ 
+---
 
-![eureka.png](docs/eureka.png)
+## Eureka Server
 
-# See for example of  request
-Or
-Import in Postman
+The Eureka server dashboard is available at:  
+[http://localhost:8761/](http://localhost:8761/)
+
+Example dashboard:
+
+![Eureka Dashboard](docs/eureka.png)
+
+---
+
+## API Requests via Gateway
+
+### Through Gateway
+
+#### Query Products
+
+- **Method:** GET
+- **URL:** `http://127.0.0.1:8080/api/v1/queries/products`
+
+#### Create a Product
+
+- **Method:** POST
+- **URL:** `http://127.0.0.1:8080/api/v1/commands/products`
+- **Headers:** `Content-Type: application/json`
+- **Body:**
+
+  ```json
+  {
+    "price": 999,
+    "name": "Product 1"
+  }
+  ```
+
+You can also import the provided Postman collection:  
 [microservices-starter.postman_collection.json](docs/microservices-starter.postman_collection.json)
-# Request by Gateway
 
-### throuth gateway
-GET http://127.0.0.1:8080/api/v1/queries/products
-###
-POST http://127.0.0.1:8080/api/v1/commands/products
-Content-Type: application/json
+For example HTTP requests, see the [resquest.http](docs/resquest.http) file.
 
-{
-"price": 999,
-"name": "Product 1"
-}
-##
-[resquest.http](docs/resquest.http)
+---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
+.
 ├── Dockerfile
 ├── README.md
 ├── Taskfile.yml
@@ -96,26 +146,37 @@ Content-Type: application/json
 ├── products-query
 ├── products-query.log
 └── selenium
-
-
 ```
 
-# stop server
+---
 
-``` sh
-task stop 
+## Stopping the Servers
 
-#or
+To stop all running services, use:
 
+```sh
+task stop
+```
+
+Or run the script with the relevant ports:
+
+```sh
 sh kill.ports.sh 8761 8080 8081 8090 8091
 ```
 
-## 🔹 Notes
+---
 
-- The application follows the **CQRS pattern**, separating command and query models.
-- **RabbitMQ** is used as a **message broker** for event-driven communication.
-- **PostgreSQL** is the primary database.
+## Notes
 
-## 📜 License
+- The application implements the **CQRS pattern**, separating command and query responsibilities.
+- **RabbitMQ** is used as the messaging broker for event-driven communication.
+- **PostgreSQL** is the primary database and serves as the event store.
+- Ensure version compatibility between Spring Boot, Spring Cloud, and Axon Framework.
+- Check your configuration files in the `config-repo` to ensure that each microservice (e.g., `gateway-server.properties`) is correctly defined.
 
-CC-BY-NC-SA-4.0
+---
+
+## License
+
+This project is licensed under the **CC-BY-NC-SA-4.0** license.
+
