@@ -1,0 +1,18 @@
+name: pcoundia
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: pcoundia_mongodb_container
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongod.conf:/etc/mongod.conf
+#      - mongo_data:/data/db
+    command: ["--config", "/etc/mongod.conf"]
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=pcoundia
+      - MONGO_INITDB_ROOT_PASSWORD=pcoundia
+
+#volumes:
+#  mongo_data:

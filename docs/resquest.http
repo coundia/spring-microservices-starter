@@ -1,0 +1,57 @@
+### cloud-config-server
+GET http://127.0.0.1:8090/actuator/health
+### eureka server
+GET http://127.0.0.1:8761/actuator/health
+### gateway-server
+GET http://127.0.0.1:8080/actuator/health
+### gateway-server status
+GET http://127.0.0.1:8080/api/v1/status
+### products-command
+GET http://127.0.0.1:8090/actuator/health
+### products-query
+
+POST http://127.0.0.1:8091/actuator/refresh
+### cloud-config-server
+POST http://127.0.0.1:8090/actuator/refresh
+### eureka server
+POST http://127.0.0.1:8761/actuator/refresh
+### gateway-server
+POST http://127.0.0.1:8080/actuator/refresh
+### products-command
+POST http://127.0.0.1:8090/actuator/refresh
+### products-query
+POST http://127.0.0.1:8091/actuator/refresh
+
+###
+POST http://127.0.0.1:8081/api/v1/commands/products/
+Content-Type: application/json
+
+{
+  "price": 999,
+  "name": "iPhone 16"
+}
+
+<> 2025-03-26T144644.200.json
+
+###
+GET http://127.0.0.1:8081/api/v1/queries/products
+
+###
+DELETE http://127.0.0.1:8081/api/v1/commands/products/ffe7969a-4e2d-4db3-9d78-3752e9d2ef1c
+
+<> 2025-03-26T144652.404.json
+
+### eureka/apps
+
+http://localhost:8080/eureka/apps
+
+### throuth gateway
+GET http://127.0.0.1:8080/api/v1/queries/products
+###
+POST http://127.0.0.1:8080/api/v1/commands/products/
+Content-Type: application/json
+
+{
+  "price": 999,
+  "name": "iPhone 16"
+}

@@ -1,0 +1,700 @@
+{
+	"info": {
+		"_postman_id": "20907057-4e1a-41f8-ab28-73fca136b8db",
+		"name": "microservices-starter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1771946"
+	},
+	"item": [
+		{
+			"name": "not-allowed",
+			"item": [
+				{
+					"name": "Command Create Products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"price\": 999,\n  \"name\": \"iPhone 16\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8090/api/v1/commands/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"v1",
+								"commands",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Command Create Products",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"price\": 999,\n  \"name\": \"iPhone 16\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8090/api/v1/commands/products",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8090",
+									"path": [
+										"api",
+										"v1",
+										"commands",
+										"products"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "content-length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Query List products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8091/api/v1/queries/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8091",
+							"path": [
+								"api",
+								"v1",
+								"queries",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Query List products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8091/api/v1/queries/products",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8091",
+									"path": [
+										"api",
+										"v1",
+										"queries",
+										"products"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "content-length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "server",
+			"item": [
+				{
+					"name": "Gateway Eureka aps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/eureka/apps",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eureka",
+								"apps"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gateway Eureka aps",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/eureka/apps",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"eureka",
+										"apps"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml"
+								},
+								{
+									"key": "Content-Length",
+									"value": "957"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Mar 2025 22:30:23 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "<applications>\n    <versions__delta>1</versions__delta>\n    <apps__hashcode>UP_4_</apps__hashcode>\n    <application>\n        <name>PRODUCT-COMMAND</name>\n        <instance>\n            <instanceId>192.168.1.23:product-command:8090</instanceId>\n            <hostName>localhost</hostName>\n            <app>PRODUCT-COMMAND</app>\n            <ipAddr>192.168.1.23</ipAddr>\n            <status>UP</status>\n            <overriddenstatus>UNKNOWN</overriddenstatus>\n            <port enabled=\"true\">8090</port>\n            <securePort enabled=\"false\">443</securePort>\n            <countryId>1</countryId>\n            <dataCenterInfo class=\"com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo\">\n                <name>MyOwn</name>\n            </dataCenterInfo>\n            <leaseInfo>\n                <renewalIntervalInSecs>30</renewalIntervalInSecs>\n                <durationInSecs>90</durationInSecs>\n                <registrationTimestamp>1743200435552</registrationTimestamp>\n                <lastRenewalTimestamp>1743201095690</lastRenewalTimestamp>\n                <evictionTimestamp>0</evictionTimestamp>\n                <serviceUpTimestamp>1743200435049</serviceUpTimestamp>\n            </leaseInfo>\n            <metadata>\n                <management.port>8090</management.port>\n            </metadata>\n            <homePageUrl>http://localhost:8090/</homePageUrl>\n            <statusPageUrl>http://localhost:8090/actuator/info</statusPageUrl>\n            <healthCheckUrl>http://localhost:8090/actuator/health</healthCheckUrl>\n            <vipAddress>product-command</vipAddress>\n            <secureVipAddress>product-command</secureVipAddress>\n            <isCoordinatingDiscoveryServer>false</isCoordinatingDiscoveryServer>\n            <lastUpdatedTimestamp>1743200435552</lastUpdatedTimestamp>\n            <lastDirtyTimestamp>1743200435030</lastDirtyTimestamp>\n            <actionType>ADDED</actionType>\n        </instance>\n    </application>\n    <application>\n        <name>PRODUCT-QUERY</name>\n        <instance>\n            <instanceId>192.168.1.23:product-query:8091</instanceId>\n            <hostName>localhost</hostName>\n            <app>PRODUCT-QUERY</app>\n            <ipAddr>192.168.1.23</ipAddr>\n            <status>UP</status>\n            <overriddenstatus>UNKNOWN</overriddenstatus>\n            <port enabled=\"true\">8091</port>\n            <securePort enabled=\"false\">443</securePort>\n            <countryId>1</countryId>\n            <dataCenterInfo class=\"com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo\">\n                <name>MyOwn</name>\n            </dataCenterInfo>\n            <leaseInfo>\n                <renewalIntervalInSecs>30</renewalIntervalInSecs>\n                <durationInSecs>90</durationInSecs>\n                <registrationTimestamp>1743200847062</registrationTimestamp>\n                <lastRenewalTimestamp>1743201087098</lastRenewalTimestamp>\n                <evictionTimestamp>0</evictionTimestamp>\n                <serviceUpTimestamp>1743200846546</serviceUpTimestamp>\n            </leaseInfo>\n            <metadata>\n                <management.port>8091</management.port>\n            </metadata>\n            <homePageUrl>http://localhost:8091/</homePageUrl>\n            <statusPageUrl>http://localhost:8091/actuator/info</statusPageUrl>\n            <healthCheckUrl>http://localhost:8091/actuator/health</healthCheckUrl>\n            <vipAddress>product-query</vipAddress>\n            <secureVipAddress>product-query</secureVipAddress>\n            <isCoordinatingDiscoveryServer>false</isCoordinatingDiscoveryServer>\n            <lastUpdatedTimestamp>1743200847062</lastUpdatedTimestamp>\n            <lastDirtyTimestamp>1743200846528</lastDirtyTimestamp>\n            <actionType>ADDED</actionType>\n        </instance>\n    </application>\n    <application>\n        <name>CLOUD-CONFIG-SERVER</name>\n        <instance>\n            <instanceId>192.168.1.23:cloud-config-server:8081</instanceId>\n            <hostName>192.168.1.23</hostName>\n            <app>CLOUD-CONFIG-SERVER</app>\n            <ipAddr>192.168.1.23</ipAddr>\n            <status>UP</status>\n            <overriddenstatus>UNKNOWN</overriddenstatus>\n            <port enabled=\"true\">8081</port>\n            <securePort enabled=\"false\">443</securePort>\n            <countryId>1</countryId>\n            <dataCenterInfo class=\"com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo\">\n                <name>MyOwn</name>\n            </dataCenterInfo>\n            <leaseInfo>\n                <renewalIntervalInSecs>30</renewalIntervalInSecs>\n                <durationInSecs>90</durationInSecs>\n                <registrationTimestamp>1743200463708</registrationTimestamp>\n                <lastRenewalTimestamp>1743201093892</lastRenewalTimestamp>\n                <evictionTimestamp>0</evictionTimestamp>\n                <serviceUpTimestamp>1743200463157</serviceUpTimestamp>\n            </leaseInfo>\n            <metadata>\n                <management.port>8081</management.port>\n            </metadata>\n            <homePageUrl>http://192.168.1.23:8081/</homePageUrl>\n            <statusPageUrl>http://192.168.1.23:8081/actuator/info</statusPageUrl>\n            <healthCheckUrl>http://192.168.1.23:8081/actuator/health</healthCheckUrl>\n            <vipAddress>cloud-config-server</vipAddress>\n            <secureVipAddress>cloud-config-server</secureVipAddress>\n            <isCoordinatingDiscoveryServer>false</isCoordinatingDiscoveryServer>\n            <lastUpdatedTimestamp>1743200463708</lastUpdatedTimestamp>\n            <lastDirtyTimestamp>1743200463183</lastDirtyTimestamp>\n            <actionType>ADDED</actionType>\n        </instance>\n    </application>\n    <application>\n        <name>GATEWAY-SERVER</name>\n        <instance>\n            <instanceId>192.168.1.23:gateway-server:8080</instanceId>\n            <hostName>192.168.1.23</hostName>\n            <app>GATEWAY-SERVER</app>\n            <ipAddr>192.168.1.23</ipAddr>\n            <status>UP</status>\n            <overriddenstatus>UNKNOWN</overriddenstatus>\n            <port enabled=\"true\">8080</port>\n            <securePort enabled=\"false\">443</securePort>\n            <countryId>1</countryId>\n            <dataCenterInfo class=\"com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo\">\n                <name>MyOwn</name>\n            </dataCenterInfo>\n            <leaseInfo>\n                <renewalIntervalInSecs>30</renewalIntervalInSecs>\n                <durationInSecs>90</durationInSecs>\n                <registrationTimestamp>1743200435552</registrationTimestamp>\n                <lastRenewalTimestamp>1743201095690</lastRenewalTimestamp>\n                <evictionTimestamp>0</evictionTimestamp>\n                <serviceUpTimestamp>1743200434971</serviceUpTimestamp>\n            </leaseInfo>\n            <metadata>\n                <management.port>8080</management.port>\n            </metadata>\n            <homePageUrl>http://192.168.1.23:8080/</homePageUrl>\n            <statusPageUrl>http://192.168.1.23:8080/actuator/info</statusPageUrl>\n            <healthCheckUrl>http://192.168.1.23:8080/actuator/health</healthCheckUrl>\n            <vipAddress>gateway-server</vipAddress>\n            <secureVipAddress>gateway-server</secureVipAddress>\n            <isCoordinatingDiscoveryServer>false</isCoordinatingDiscoveryServer>\n            <lastUpdatedTimestamp>1743200435552</lastUpdatedTimestamp>\n            <lastDirtyTimestamp>1743200434913</lastDirtyTimestamp>\n            <actionType>ADDED</actionType>\n        </instance>\n    </application>\n</applications>"
+						}
+					]
+				},
+				{
+					"name": "EUREKA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8761/actuator/health",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8761",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EUREKA",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8761/actuator/health",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8761",
+									"path": [
+										"actuator",
+										"health"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.spring-boot.actuator.v3+json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Mar 2025 22:30:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UP\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/actuator/health",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gateway",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/actuator/health",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"actuator",
+										"health"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.spring-boot.actuator.v3+json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UP\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Cloud config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8081/actuator/health",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8081",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cloud config",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8081/actuator/health",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8081",
+									"path": [
+										"actuator",
+										"health"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.spring-boot.actuator.v3+json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Mar 2025 22:30:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UP\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "commads",
+			"item": [
+				{
+					"name": "GATEWAY-Command Create Products   GATEWAY",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"price\": 999,\n  \"name\": \"iPhone 16\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/commands/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"commands",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GATEWAY-Command Create Products   GATEWAY",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"price\": 999,\n  \"name\": \"iPhone 16\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/commands/products",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"commands",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"5d46b6e9-41fa-4609-aca7-398651cd7f47\",\n    \"name\": \"iPhone 16\",\n    \"price\": 999\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "queries",
+			"item": [
+				{
+					"name": "GATEWAY-Query List products Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/queries/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"queries",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GATEWAY-Query List products Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/queries/products",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"queries",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "850"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"products\": [\n        {\n            \"id\": \"5d46b6e9-41fa-4609-aca7-398651cd7f47\",\n            \"name\": \"iPhone 16\",\n            \"price\": 999\n        },\n        {\n            \"id\": \"5c83eeca-7d65-4796-b039-608672d9dc5a\",\n            \"name\": \"iPhone 16\",\n            \"price\": 999\n        },\n        {\n            \"id\": \"eade7cfb-20a0-45d3-9a60-94b7ad95e938\",\n            \"name\": \"iPhone 16\",\n            \"price\": 999\n        },\n        {\n            \"id\": \"f7effe85-de7b-40d9-9098-0870cb854355\",\n            \"name\": \"iPhone 16\",\n            \"price\": 999\n        },\n        {\n            \"id\": \"6f553cb3-455d-4ee0-88b7-a395a7b73575\",\n            \"name\": \"iPhone 16\",\n            \"price\": 999\n        },\n        {\n            \"id\": \"3005fe64-790b-4e0d-86d6-be8c9f32abfb\",\n            \"name\": \"iPhone 16\",\n            \"price\": 999\n        },\n        {\n            \"id\": \"c3981f8e-93a7-4515-ae31-681a58c9f116\",\n            \"name\": \"iPhone 16\",\n            \"price\": 999\n        },\n        {\n            \"id\": \"c4da6f48-16fe-4911-bda4-a6ddfee3e17a\",\n            \"name\": \"iPhone 16\",\n            \"price\": 999\n        },\n        {\n            \"id\": \"ce416cc7-a636-466a-940c-e1275e12468e\",\n            \"name\": \"iPhone 16\",\n            \"price\": 999\n        },\n        {\n            \"id\": \"3a45cc22-a0ad-4f2d-a91c-1d20c2d77462\",\n            \"name\": \"iPhone 16\",\n            \"price\": 999\n        }\n    ],\n    \"currentPage\": 0,\n    \"limit\": 10,\n    \"totalElements\": 15\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

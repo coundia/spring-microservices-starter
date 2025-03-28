@@ -1,0 +1,53 @@
+version: '3.8'
+
+name: pcoundia
+
+services:
+  postgresql:
+    container_name: pcoundia-postgresql
+    image: postgres:13
+    networks:
+      - pcoundia-network
+    environment:
+      POSTGRES_USER: pcoundia
+      POSTGRES_PASSWORD: pcoundia
+      POSTGRES_DB: pcoundia
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "pcoundia", "-d", "pcoundia" ]
+      interval: 10s
+      retries: 5
+
+  rabbitmq:
+    container_name: pcoundia-rabbitmq
+    image: rabbitmq:3-management
+    networks:
+      - pcoundia-network
+    environment:
+      RABBITMQ_DEFAULT_USER: pcoundia
+      RABBITMQ_DEFAULT_PASS: pcoundia
+    #      RABBITMQ_DEFAULT_VHOST: pcoundia
+    ports:
+      - "15672:15672"  # RabbitMQ Management UI
+      - "5672:5672"    # RabbitMQ protocol
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    restart: always
+    healthcheck:
+      test: [ "CMD", "rabbitmqctl", "status" ]
+      interval: 10s
+      retries: 5
+
+volumes:
+  postgresql_data:
+    driver: local
+  rabbitmq_data:
+    driver: local
+
+networks:
+  pcoundia-network:
+    driver: bridge
