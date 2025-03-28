@@ -43,6 +43,8 @@ The **Spring Axon RabbitMQ Starter** project demonstrates a microservices archit
 
 ![architecture_system.png](docs/architecture_system.png)
 
+Image created by draw.io
+
 [docker.md](docs/docker.md)
 
 
