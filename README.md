@@ -1,4 +1,4 @@
-# Spring Axon RabbitMQ Webflux Starter
+# Spring Axon RabbitMQ Webflux Postgres(EventStore and Db) Starter
 
 This project is a maven module project with
 **Spring Boot** application that leverages **Axon Framework**,
