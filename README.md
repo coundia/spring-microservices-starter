@@ -35,6 +35,18 @@ The **Spring Axon RabbitMQ Starter** project demonstrates a microservices archit
 
 ---
 
+# Architecture
+
+- See
+
+[architecture.md](docs/architecture.md)
+
+![architecture_system.png](docs/architecture_system.png)
+
+[docker.md](docs/docker.md)
+
+
+
 ## Prerequisites
 
 Before running the application, ensure you have installed:
