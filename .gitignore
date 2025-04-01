@@ -48,3 +48,5 @@ eureka.log
 gateway-server.log
 products-command.log
 products-query.log
+
+docs/HELP

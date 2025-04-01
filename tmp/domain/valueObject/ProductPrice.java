@@ -1,21 +1,21 @@
-package com.pcoundia.products.domain.valueObject;
+package .Users.pcoundia.projects.spring-microservices-starter.tmp.domain.valueObject;
 
 
 import java.io.Serializable;
 
 public class ProductPrice implements Serializable {
 
-private final double price;
+private final BigDecimal price;
 
-public ProductPrice(double price) {
+public ProductPrice(BigDecimal price) {
 this.price = price;
 }
 
-public static ProductPrice create(double price) {
+public static ProductPrice create(BigDecimal price) {
 return new ProductPrice(price);
 }
 
-public double value() {
+public BigDecimal value() {
 return this.price;
 }
 
@@ -23,12 +23,12 @@ return this.price;
 public boolean equals(Object o) {
 if (this == o) return true;
 if (!(o instanceof ProductPrice that)) return false;
-return Double.compare(that.price, this.price) == 0;
+return this.price.equals(that.price);
 }
 
 @Override
 public int hashCode() {
-return Double.hashCode(price);
+return price.hashCode();
 }
 
 @Override

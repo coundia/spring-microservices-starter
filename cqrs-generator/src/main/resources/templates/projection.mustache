@@ -1,0 +1,24 @@
+package {{package}};
+
+{{#imports}}
+import {{.}};
+{{/imports}}
+
+import org.axonframework.eventhandling.EventHandler;
+import org.springframework.stereotype.Component;
+
+@Component
+public class {{name}}Projection {
+
+@EventHandler
+public void on({{name}}CreatedEvent event) {
+}
+
+@EventHandler
+public void on({{name}}UpdatedEvent event) {
+}
+
+@EventHandler
+public void on({{name}}DeletedEvent event) {
+}
+}

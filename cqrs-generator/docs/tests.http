@@ -1,0 +1,18 @@
+POST http://127.0.0.1:8070/api/v1/generator/all
+Accept: application/x-ndjson
+Content-Type: application/json
+
+{
+    "outputDir": "target/generated",
+    "definition": {
+      "name": "Product",
+      "fields": [
+        { "name": "id", "type": "UUID" },
+        { "name": "name", "type": "String" },
+        { "name": "price", "type": "BigDecimal" }
+      ]
+    }
+  }
+
+###
+

@@ -1,21 +1,21 @@
-package com.pcoundia.products.domain.valueObject;
+package .Users.pcoundia.projects.spring-microservices-starter.tmp.domain.valueObject;
 
 
 import java.io.Serializable;
 
 public class ProductId implements Serializable {
 
-private final String id;
+private final UUID id;
 
-public ProductId(String id) {
+public ProductId(UUID id) {
 this.id = id;
 }
 
-public static ProductId create(String id) {
+public static ProductId create(UUID id) {
 return new ProductId(id);
 }
 
-public String value() {
+public UUID value() {
 return this.id;
 }
 
@@ -23,7 +23,7 @@ return this.id;
 public boolean equals(Object o) {
 if (this == o) return true;
 if (!(o instanceof ProductId that)) return false;
-return id.equals(that.id);
+return this.id.equals(that.id);
 }
 
 @Override

@@ -1,4 +1,4 @@
-package com.pcoundia.products.domain.valueObject;
+package .Users.pcoundia.projects.spring-microservices-starter.tmp.domain.valueObject;
 
 
 import java.io.Serializable;
@@ -23,7 +23,7 @@ return this.name;
 public boolean equals(Object o) {
 if (this == o) return true;
 if (!(o instanceof ProductName that)) return false;
-return name.equals(that.name);
+return this.name.equals(that.name);
 }
 
 @Override

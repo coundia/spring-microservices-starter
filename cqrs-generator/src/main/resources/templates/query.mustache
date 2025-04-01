@@ -1,0 +1,9 @@
+package {{package}};
+
+{{#imports}}
+import {{.}};
+{{/imports}}
+
+public record Get{{name}}ByIdQuery({{name}}Id id) {}
+
+public record GetAll{{name}}Query() {}

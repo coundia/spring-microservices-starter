@@ -1,17 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-	<groupId>com.pcoundia</groupId>
-	<artifactId>spring-microservices-starter</artifactId>
-	<version>1.0-SNAPSHOT</version>
+  <groupId>com.pcoundia</groupId>
+  <artifactId>spring-microservices-starter</artifactId>
+  <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-
   <properties>
     <java.version>17</java.version>
   </properties>
-
   <modules>
     <module>cloud-config-server</module>
     <module>gateway-server</module>
@@ -19,7 +14,8 @@
     <module>selenium</module>
     <module>products-query</module>
     <module>products-command</module>
-
+    <module>cqrs-generator</module>
   </modules>
+
 
 </project>

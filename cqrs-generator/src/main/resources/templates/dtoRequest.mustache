@@ -1,0 +1,10 @@
+package {{package}};
+
+{{#imports}}
+import {{.}};
+{{/imports}}
+
+public record {{name}}Request(
+{{#fields}}    {{type}} {{name}}{{^last}},{{/last}}
+{{/fields}}
+) {}

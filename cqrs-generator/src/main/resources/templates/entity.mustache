@@ -1,0 +1,15 @@
+package {{package}};
+
+{{#imports}}
+import {{.}};
+{{/imports}}
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Table("{{table}}")
+public record {{name}}(
+{{#fields}}    {{type}} {{name}}{{^last}},{{/last}}
+{{/fields}}
+) {
+}

@@ -1,0 +1,36 @@
+package {{package}};
+
+{{#imports}}
+import {{.}};
+{{/imports}}
+
+@Aggregate
+public class {{name}}Aggregate {
+
+@AggregateIdentifier
+private {{name}}Id id;
+
+{{#fields}}
+	{{^isId}}private {{type}} {{name}};
+	{{/isId}}
+{{/fields}}
+
+protected {{name}}Aggregate() {}
+
+@CommandHandler
+public {{name}}Aggregate(Create{{name}}Command command) {
+apply(new {{name}}CreatedEvent(
+{{#fields}}            command.{{name}}(){{^last}},{{/last}}
+{{/fields}}
+));
+}
+
+@EventSourcingHandler
+public void on({{name}}CreatedEvent event) {
+this.id = event.id();
+{{#fields}}
+	{{^isId}}        this.{{name}} = event.{{name}}();
+	{{/isId}}
+{{/fields}}
+}
+}

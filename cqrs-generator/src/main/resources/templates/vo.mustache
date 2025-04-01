@@ -1,0 +1,41 @@
+package {{package}};
+
+{{#imports}}
+import {{.}};
+{{/imports}}
+
+import java.io.Serializable;
+
+public class {{voName}} implements Serializable {
+
+private final {{type}} {{name}};
+
+public {{voName}}({{type}} {{name}}) {
+this.{{name}} = {{name}};
+}
+
+public static {{voName}} create({{type}} {{name}}) {
+return new {{voName}}({{name}});
+}
+
+public {{type}} value() {
+return this.{{name}};
+}
+
+@Override
+public boolean equals(Object o) {
+if (this == o) return true;
+if (!(o instanceof {{voName}} that)) return false;
+return {{{equalsExpression}}};
+}
+
+@Override
+public int hashCode() {
+return {{{hashCodeExpression}}};
+}
+
+@Override
+public String toString() {
+return String.valueOf({{name}});
+}
+}
