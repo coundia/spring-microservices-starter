@@ -37,7 +37,8 @@ public class BaseIntegrationTests {
     }
 
     public String getBaseUrl() {
-        String uri = "http://"+this.host + ":" + this.port + "/api";
+//        String uri = "http://"+this.host + ":" + this.port + "/api";
+        String uri = "http://"+this.host + ":8080/api";
 
         log.info("***************** URI ********************");
         log.info(uri);

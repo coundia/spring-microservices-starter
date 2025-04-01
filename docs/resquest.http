@@ -23,7 +23,7 @@ POST http://127.0.0.1:8090/actuator/refresh
 POST http://127.0.0.1:8091/actuator/refresh
 
 ###
-POST http://127.0.0.1:8081/api/v1/commands/products/
+POST http://127.0.0.1:8090/api/v1/commands/products
 Content-Type: application/json
 
 {
@@ -34,21 +34,17 @@ Content-Type: application/json
 <> 2025-03-26T144644.200.json
 
 ###
-GET http://127.0.0.1:8081/api/v1/queries/products
+GET http://127.0.0.1:8091/api/v1/queries/products
 
 ###
-DELETE http://127.0.0.1:8081/api/v1/commands/products/ffe7969a-4e2d-4db3-9d78-3752e9d2ef1c
+DELETE http://127.0.0.1:8091/api/v1/commands/products/ffe7969a-4e2d-4db3-9d78-3752e9d2ef1c
 
-<> 2025-03-26T144652.404.json
 
-### eureka/apps
+###########################  throuth gateway ####################################
 
-http://localhost:8080/eureka/apps
-
-### throuth gateway
 GET http://127.0.0.1:8080/api/v1/queries/products
 ###
-POST http://127.0.0.1:8080/api/v1/commands/products/
+POST http://127.0.0.1:8080/api/v1/commands/products
 Content-Type: application/json
 
 {

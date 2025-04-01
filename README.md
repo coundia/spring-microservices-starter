@@ -77,6 +77,13 @@ Run the following command to start the Docker containers:
 docker compose -f docker/main.yml up -d
 ```
 
+or
+```sh
+task serve
+```
+
+
+
 ### 3. Start the Spring Boot Applications
 
 You can start all applications using the provided Taskfile:

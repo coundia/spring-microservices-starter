@@ -25,7 +25,7 @@ public class SecurityConfig {
         };
 
         http.authorizeExchange(exchanges -> exchanges
-                        .pathMatchers("/**").access(gatewayAuthManager)
+                       // .pathMatchers("/**").access(gatewayAuthManager)
                         .anyExchange().permitAll()
                 )
                 .exceptionHandling(exceptionHandling -> exceptionHandling
