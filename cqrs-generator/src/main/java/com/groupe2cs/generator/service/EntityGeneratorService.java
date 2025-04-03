@@ -27,7 +27,12 @@ public class EntityGeneratorService {
         context.put("table", definition.getName().toLowerCase());
 
         var fields = definition.getFields();
-        context.put("fields", FieldTransformer.transform(fields, definition.getName()));
+
+        fields = fields.stream().filter(
+                f-> !f.getName().equalsIgnoreCase("id")
+        ).toList();
+
+        context.put("fields", fields);
 
         Set<String> imports = new LinkedHashSet<>();
         imports.add("org.springframework.data.annotation.Id");
