@@ -3,13 +3,13 @@ Accept: application/x-ndjson
 Content-Type: application/json
 
 {
-    "outputDir": "target/generated",
+    "outputDir": "src/main/java/com/generated",
     "definition": {
       "name": "Product",
       "fields": [
-        { "name": "id", "type": "UUID" },
+        { "name": "id", "type": "String" },
         { "name": "name", "type": "String" },
-        { "name": "price", "type": "BigDecimal" }
+        { "name": "price", "type": "Double" }
       ]
     }
   }

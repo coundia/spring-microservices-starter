@@ -13,9 +13,9 @@ curl -N -X POST http://localhost:8070/api/v1/generator/all \
     "definition": {
       "name": "Product",
       "fields": [
-        { "name": "id", "type": "UUID" },
+        { "name": "id", "type": "String" },
         { "name": "name", "type": "String" },
-        { "name": "price", "type": "BigDecimal" }
+        { "name": "price", "type": "Double" }
       ]
     }
   }'

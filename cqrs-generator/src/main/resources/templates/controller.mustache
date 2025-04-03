@@ -3,6 +3,7 @@ package {{package}};
 {{#imports}}
 import {{.}};
 {{/imports}}
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/{{lowerName}}s")

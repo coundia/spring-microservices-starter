@@ -3,34 +3,42 @@ package {{package}};
 {{#imports}}
 import {{.}};
 {{/imports}}
+import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import java.util.Date;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Aggregate
 public class {{name}}Aggregate {
 
 @AggregateIdentifier
 private {{name}}Id id;
-
 {{#fields}}
-	{{^isId}}private {{type}} {{name}};
-	{{/isId}}
+{{^isId}}private {{type}} {{name}};
+{{/isId}}
 {{/fields}}
 
-protected {{name}}Aggregate() {}
 
 @CommandHandler
 public {{name}}Aggregate(Create{{name}}Command command) {
 apply(new {{name}}CreatedEvent(
-{{#fields}}            command.{{name}}(){{^last}},{{/last}}
-{{/fields}}
+	{{#fields}}		command.get{{nameCapitalized}}(){{^last}},{{/last}}
+	{{/fields}}
 ));
 }
 
 @EventSourcingHandler
 public void on({{name}}CreatedEvent event) {
-this.id = event.id();
-{{#fields}}
-	{{^isId}}        this.{{name}} = event.{{name}}();
-	{{/isId}}
-{{/fields}}
+	this.id = event.getId();
+	{{#fields}}
+	{{^isId}}	this.{{name}} = event.get{{nameCapitalized}}();
+		{{/isId}}
+	{{/fields}}
 }
 }

@@ -1,7 +1,21 @@
 package {{package}};
 
 {{#imports}}
-import {{.}};
+	import {{.}};
 {{/imports}}
+import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import java.util.Date;
 
-public class {{name}}Command {}
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class {{name}}Command implements Serializable{
+{{#fields}}  private  {{type}} {{name}};
+{{/fields}}
+
+}

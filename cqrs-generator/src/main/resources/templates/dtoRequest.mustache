@@ -3,8 +3,19 @@ package {{package}};
 {{#imports}}
 import {{.}};
 {{/imports}}
+import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import java.util.Date;
 
-public record {{name}}Request(
-{{#fields}}    {{type}} {{name}}{{^last}},{{/last}}
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class {{name}}Request implements Serializable{
+{{#fields}}private   {{type}} {{name}};
 {{/fields}}
-) {}
+
+}

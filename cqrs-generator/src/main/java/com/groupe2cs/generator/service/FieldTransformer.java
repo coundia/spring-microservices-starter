@@ -14,6 +14,7 @@ public class FieldTransformer {
             var field = fields.get(i);
             Map<String, Object> f = new HashMap<>();
             f.put("name", field.getName());
+            f.put("nameCapitalized", Utils.capitalize(field.getName()));
             f.put("type", entityName + Utils.capitalize(field.getName()));
             f.put("isId", field.getName().equalsIgnoreCase("id"));
             f.put("last", i == fields.size() - 1);
