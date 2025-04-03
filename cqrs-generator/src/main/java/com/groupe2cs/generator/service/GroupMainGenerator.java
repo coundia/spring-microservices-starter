@@ -28,6 +28,8 @@ public class GroupMainGenerator {
     private final RepositoryGeneratorService repositoryGeneratorService;
     private final BaseIntegrationTestGeneratorService baseIntegrationTestGeneratorService;
     private final EntityGeneratorService entityGeneratorService;
+    private final ListQueryGeneratorService listQueryGeneratorService;
+    private final ListQueryHandlerGeneratorService listQueryHandlerGeneratorService;
 
 
     private EntityDefinition loadFromFileDefinition() {
@@ -57,7 +59,9 @@ public class GroupMainGenerator {
             ExceptionGeneratorService exceptionGeneratorService,
             RepositoryGeneratorService repositoryGeneratorService,
             BaseIntegrationTestGeneratorService baseIntegrationTestGeneratorService,
-            EntityGeneratorService entityGeneratorService
+            EntityGeneratorService entityGeneratorService,
+            ListQueryGeneratorService listQueryGeneratorService,
+            ListQueryHandlerGeneratorService  listQueryHandlerGeneratorService
     ) {
         this.properties = properties;
         this.commandGenerator = commandGenerator;
@@ -75,6 +79,8 @@ public class GroupMainGenerator {
         this.repositoryGeneratorService = repositoryGeneratorService;
         this.baseIntegrationTestGeneratorService = baseIntegrationTestGeneratorService;
         this.entityGeneratorService = entityGeneratorService;
+        this.listQueryGeneratorService = listQueryGeneratorService;
+        this.listQueryHandlerGeneratorService = listQueryHandlerGeneratorService;
     }
 
     public Flux<ApiResponseDto> generateStreaming(EntityDefinitionDTO definitionDto) {
@@ -101,10 +107,12 @@ public class GroupMainGenerator {
                 commandGenerator.generate(definition, outputDir);
 
                 emit(sink, "Generating Queries...");
-                queryGeneratorService.generate(definition, outputDir);
+              //  queryGeneratorService.generate(definition, outputDir);
+                listQueryGeneratorService.generate(definition, outputDir);
 
                 emit(sink, "Generating Query Handlers...");
-                queryHandlerGenerator.generate(definition, outputDir);
+              //  queryHandlerGenerator.generate(definition, outputDir);
+                listQueryHandlerGeneratorService.generate(definition, outputDir);
 
                 emit(sink, "Generating DTO Requests...");
                 dtoRequestGeneratorService.generate(definition, outputDir);
@@ -113,7 +121,7 @@ public class GroupMainGenerator {
                 dtoResponseGeneratorService.generate(definition, outputDir);
 
                 emit(sink, "Generating Mappers...");
-                mapperGenerator.generate(definition, outputDir);
+              //  mapperGenerator.generate(definition, outputDir);
 
                 emit(sink, "Generating Projections...");
                 projectionGenerator.generate(definition, outputDir);
