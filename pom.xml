@@ -14,7 +14,6 @@
     <module>selenium</module>
     <module>products-query</module>
     <module>products-command</module>
-    <module>cqrs-generator</module>
   </modules>
 
 
