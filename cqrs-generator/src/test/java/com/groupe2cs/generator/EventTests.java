@@ -32,7 +32,7 @@ public class EventTests {
         Files.createDirectories(templatesDir);
         Files.writeString(
                 templatesDir.resolve("event.mustache"),
-                "package test;\n\npublic record {{name}}{{eventType}}Event({{#fields}}{{type}} {{name}}{{^last}}, {{/last}}{{/fields}}) {}"
+                "package test;\n\npublic class {{name}}{{eventType}}Event({{#fields}}{{type}} {{name}}{{^last}}, {{/last}}{{/fields}}) {}"
         );
 
         EntityDefinition definition = EntityDefinition.fromClass(MockEntity.class);
@@ -43,7 +43,7 @@ public class EventTests {
             assertThat(file).exists();
 
             String content = Files.readString(file.toPath());
-            assertThat(content).contains("public record MockEntity" + type + "Event");
+            assertThat(content).contains("public class MockEntity" + type + "Event");
         }
     }
 }

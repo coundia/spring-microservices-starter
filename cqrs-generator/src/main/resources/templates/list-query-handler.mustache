@@ -1,25 +1,30 @@
 package {{package}};
 
 {{#imports}}
-	import {{.}};
+import {{.}};
 {{/imports}}
 
 @Component
-public class List{{entity}}sQueryHandler {
+public class List{{entity}}QueryHandler {
 
 private final {{entity}}Repository {{entityLower}}Repository;
 
-public List{{entity}}sQueryHandler({{entity}}Repository {{entityLower}}Repository) {
+public List{{entity}}QueryHandler({{entity}}Repository {{entityLower}}Repository) {
 this.{{entityLower}}Repository = {{entityLower}}Repository;
 }
 
 @QueryHandler
-public Mono<List{{entity}}ResponseDTO> handle(List{{entity}}sQuery query) {
+public Mono<{{entity}}PagedResponse<{{entity}}Response>> handle(List{{entity}}Query query) {
 	int limit = (int) query.getLimit();
 	int offset = (int) (query.getPage() * query.getLimit());
+
 	Mono<Long> totalElements = {{entityLower}}Repository.findAll().count();
 		Mono<List<{{entity}}>> items = {{entityLower}}Repository.findAllByPage(limit, offset).collectList();
+
 		return Mono.zip(items, totalElements)
-		.map(tuple -> List{{entity}}ResponseDTO.from(tuple.getT1(), query.getPage(), query.getLimit(), tuple.getT2()));
-		}
-		}
+		.map(tuple ->{{entity}}PagedResponse.from(
+		tuple.getT1(), query.getPage(), query.getLimit(), tuple.getT2()
+		));
+ }
+
+}

@@ -3,13 +3,13 @@ Accept: application/x-ndjson
 Content-Type: application/json
 
 {
-    "outputDir": "src/main/java/com/generated",
+    "outputDir": "/Users/pcoundia/projects/spring-microservices-starter/products-command/src/main/java/com/generated/sales",
     "definition": {
-      "name": "Product",
+      "name": "Sale",
       "fields": [
         { "name": "id", "type": "String" },
         { "name": "name", "type": "String" },
-        { "name": "price", "type": "Double" }
+        { "name": "amount", "type": "Double" }
       ]
     }
   }

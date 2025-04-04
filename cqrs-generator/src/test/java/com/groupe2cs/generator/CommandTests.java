@@ -3,7 +3,6 @@ package com.groupe2cs.generator;
 import com.groupe2cs.generator.config.GeneratorProperties;
 import com.groupe2cs.generator.config.GeneratorPropertiesTestConfig;
 import com.groupe2cs.generator.model.EntityDefinition;
-import com.groupe2cs.generator.service.AggregateGeneratorService;
 import com.groupe2cs.generator.service.CommandGeneratorService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -27,18 +26,39 @@ public class CommandTests {
     @Autowired
     GeneratorProperties generatorProperties;
 
-//    @Test
-    void it_should_generate_command_file(@TempDir Path tempDir) throws Exception {
+    @Test
+    void it_should_generate_command_files(@TempDir Path tempDir) throws Exception {
         Path templatesDir = tempDir.resolve("templates");
         Files.createDirectories(templatesDir);
-        Files.writeString(templatesDir.resolve("command.mustache"), "public class {{name}}Command {}");
-
+        Files.writeString(templatesDir.resolve("command.mustache"),
+                "package {{package}};\n\n" +
+                        "{{#imports}}\nimport {{.}};\n{{/imports}}\n" +
+                        "import java.io.Serializable;\n" +
+                        "import lombok.AllArgsConstructor;\n" +
+                        "import lombok.Getter;\n" +
+                        "import lombok.NoArgsConstructor;\n" +
+                        "import lombok.Setter;\n" +
+                        "import lombok.Builder;\n\n" +
+                        "@Getter\n@Setter\n@AllArgsConstructor\n@NoArgsConstructor\n@Builder\n" +
+                        "public class {{name}}Command implements Serializable {\n" +
+                        "{{#fields}}  private {{type}} {{name}};\n{{/fields}}" +
+                        "}\n");
 
         EntityDefinition definition = EntityDefinition.fromClass(MockEntity.class);
         service.generate(definition, tempDir.toString());
 
-        File generated = tempDir.resolve(generatorProperties.getCommandPackage()+"/MockEntityCommand.java").toFile();
+        for (String prefix : new String[]{"Create", "Update", "Delete"}) {
+            String fileName = prefix + "MockEntityCommand.java";
+            File generated = tempDir.resolve(generatorProperties.getCommandPackage() + "/" + fileName).toFile();
+            assertThat(generated).exists();
+            String content = Files.readString(generated.toPath());
+            assertThat(content).contains("public class " + prefix + "MockEntityCommand");
+            assertThat(content).contains(" private  MockEntityId id;");
+        }
+    }
 
-        assertThat(Files.readString(generated.toPath())).contains("public class MockEntityCommand");
+    static class MockEntity {
+        private String id;
+        private String name;
     }
 }

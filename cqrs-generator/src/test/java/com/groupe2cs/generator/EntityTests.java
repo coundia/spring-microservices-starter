@@ -42,7 +42,7 @@ public class EntityTests {
         assertThat(file).exists();
 
         String content = Files.readString(file.toPath());
-        assertThat(content).contains("record MockEntity");
+        assertThat(content).contains("class MockEntity");
         assertThat(content).contains("@Table(\"mockentity\")");
     }
 }

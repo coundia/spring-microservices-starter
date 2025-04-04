@@ -30,6 +30,8 @@ public class GroupMainGenerator {
     private final EntityGeneratorService entityGeneratorService;
     private final ListQueryGeneratorService listQueryGeneratorService;
     private final ListQueryHandlerGeneratorService listQueryHandlerGeneratorService;
+    private final ListControllerGeneratorService listControllerGeneratorService;
+    private final PagedResponseGeneratorService pagedResponseGeneratorService;
 
 
     private EntityDefinition loadFromFileDefinition() {
@@ -61,7 +63,9 @@ public class GroupMainGenerator {
             BaseIntegrationTestGeneratorService baseIntegrationTestGeneratorService,
             EntityGeneratorService entityGeneratorService,
             ListQueryGeneratorService listQueryGeneratorService,
-            ListQueryHandlerGeneratorService  listQueryHandlerGeneratorService
+            ListQueryHandlerGeneratorService  listQueryHandlerGeneratorService,
+            ListControllerGeneratorService listControllerGeneratorService,
+            PagedResponseGeneratorService pagedResponseGeneratorService
     ) {
         this.properties = properties;
         this.commandGenerator = commandGenerator;
@@ -81,6 +85,8 @@ public class GroupMainGenerator {
         this.entityGeneratorService = entityGeneratorService;
         this.listQueryGeneratorService = listQueryGeneratorService;
         this.listQueryHandlerGeneratorService = listQueryHandlerGeneratorService;
+        this.listControllerGeneratorService = listControllerGeneratorService;
+        this.pagedResponseGeneratorService = pagedResponseGeneratorService;
     }
 
     public Flux<ApiResponseDto> generateStreaming(EntityDefinitionDTO definitionDto) {
@@ -119,6 +125,7 @@ public class GroupMainGenerator {
 
                 emit(sink, "Generating DTO Responses...");
                 dtoResponseGeneratorService.generate(definition, outputDir);
+                pagedResponseGeneratorService.generate(definition, outputDir);
 
                 emit(sink, "Generating Mappers...");
               //  mapperGenerator.generate(definition, outputDir);
@@ -127,7 +134,8 @@ public class GroupMainGenerator {
                 projectionGenerator.generate(definition, outputDir);
 
                 emit(sink, "Generating Controllers...");
-                controllerGenerator.generate(definition, outputDir);
+//                controllerGenerator.generate(definition, outputDir);
+                listControllerGeneratorService.generate(definition, outputDir);
 
                 emit(sink, "Generating Repositories...");
                 repositoryGeneratorService.generate(definition, outputDir);

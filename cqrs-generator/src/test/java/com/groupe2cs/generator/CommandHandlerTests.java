@@ -26,7 +26,7 @@ public class CommandHandlerTests {
     @Autowired
     GeneratorProperties generatorProperties;
 
-//    @Test
+    @Test
     void it_should_generate_command_handler_file(@TempDir Path tempDir) throws Exception {
         Path templatesDir = tempDir.resolve("templates");
         Files.createDirectories(templatesDir);

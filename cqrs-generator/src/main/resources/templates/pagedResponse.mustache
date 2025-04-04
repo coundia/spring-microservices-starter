@@ -1,0 +1,29 @@
+package {{package}};
+
+import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.Setter;
+import lombok.Builder;
+import java.util.Date;
+import java.util.List;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class {{name}}PagedResponse<T> implements Serializable {
+
+	private List<T> content;
+	private int page;
+	private int size;
+	private long totalElements;
+	private long totalPages;
+
+	public static <T> {{name}}PagedResponse<T> from(List<T> content, int page, int size, long totalElements,long totalPages) {
+		return new {{name}}PagedResponse<>(content, page, size, totalElements, totalPages);
+		}
+}

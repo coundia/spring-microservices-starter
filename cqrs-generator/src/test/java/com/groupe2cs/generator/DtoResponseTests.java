@@ -42,6 +42,6 @@ public class DtoResponseTests {
         assertThat(file).exists();
 
         String content = Files.readString(file.toPath());
-        assertThat(content).contains("public record MockEntityResponse");
+        assertThat(content).contains("public class MockEntityResponse");
     }
 }

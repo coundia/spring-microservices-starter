@@ -38,6 +38,11 @@ public class ListQueryHandlerGeneratorService {
         imports.add("org.axonframework.queryhandling.QueryHandler");
         imports.add("org.springframework.stereotype.Component");
         imports.add("reactor.core.publisher.Mono");
+
+        imports.add(Utils.getPackage(baseDir + "/" + generatorProperties.getDtoPackage()) + ".*");
+        imports.add(Utils.getPackage(baseDir + "/" + generatorProperties.getRepositoryPackage()) + ".*");
+        imports.add(Utils.getPackage(baseDir + "/" + generatorProperties.getQueryPackage()) + ".*");
+
         context.put("imports", imports);
 
         String content = templateEngine.render("list-query-handler.mustache", context);

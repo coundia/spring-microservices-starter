@@ -26,10 +26,15 @@ public class RepositoryGeneratorService {
         context.put("package", Utils.getPackage(outputDir));
 
         Set<String> imports = new LinkedHashSet<>();
-        imports.add(Utils.getPackage(baseDir + "/" + generatorProperties.getDomainPackage()) + "." + definition.getName());
-        imports.add(Utils.getPackage(baseDir + "/" + generatorProperties.getVoPackage()) + "." + definition.getName() + "Id");
+        imports.add(Utils.getPackage(baseDir + "/" + generatorProperties.getEntityPackage()) + "." + definition.getName());
 
         context.put("imports", imports);
+
+        context.put("nameLower", definition.getName().toLowerCase());
+        context.put("fields", definition.getFields().stream()
+                .filter(f -> !f.getName().equalsIgnoreCase("id"))
+                .map(f -> Map.of("name", f.getName(), "type", f.getType()))
+                .toList());
 
         String content = templateEngine.render("repository.mustache", context);
         fileWriterService.write(outputDir, definition.getName() + "Repository.java", content);
